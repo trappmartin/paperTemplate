@@ -2,7 +2,8 @@
 \usepackage{arxiv}
 
 % load shortex containing useful packages and shorthand notation
-\usepackage[bbold]{shortex}
+\usepackage{shortex}
+\usepackage{safecolours} % use colour-blind friendly colours
 
 \usepackage{natbib}
 \bibliographystyle{abbrvnat}
@@ -17,11 +18,11 @@
 \newcommand{\eg}{\textit{e.g.}\xspace}
 \newcommand{\ie}{\textit{i.e.}\xspace}
 \newcommand{\cf}{\textit{cf.}\xspace}
-\def\wrt{w.r.t.\xspace}
+\newcommand{\wrt}{\textit{w.r.t.}\xspace}
 
 % useful macros
-\def\todo#1{\textcolor{red}{\textbf{TODO:} #1}\xspace}
-\def\note#1{\textcolor{orange}{\textbf{Note}: #1}\xspace}
+\def\todo#1{\textcolor{colour2}{\textbf{TODO:} #1}\xspace}
+\def\note#1{\textcolor{colour1}{\textbf{Note}: #1}\xspace}
 
 % nicer epsilon
 \newcommand{\oldepsilon}{\epsilon}
@@ -33,29 +34,38 @@
 
 % Fill out paper:
 \begin{document}
-\title{Fancy Title...}
+\title{Fancy Paper Title}
 
 \author{%
-	A, B, C
+	Author A \and Author B
 }
 
-\date{\today}                       
 \maketitle
 
 \begin{abstract}
-something...
+    Add abstract here
 \end{abstract}
 
 
 \section{Introduction}\label{sec:introduction}
+\todo{Add introduction}
 
-\section{Related Work}\label{sec:related_work}
+\section{Background}\label{sec:background}
+\note{Below is an example for a citation:}
+\cite{williams2006gaussian}
 
 \section{Main}\label{sec:main}
+\note{Use cref for cross references.}
+\cref{sec:background}
 
 \section{Experiments}\label{sec:experiments}
 
 \section{Conclusion and Discussion}\label{s:ccl}
+
+\subsection{Limitations}
+
+\subsection*{Acknowledgements}
+\subsection*{Author Contributions}
 
 % print bibliography
 \bibliography{bibliography} 
