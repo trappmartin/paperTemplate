@@ -3,7 +3,7 @@
 %%
 %%  Original by Jonathan Huggins, with thanks to Dan Roy and Ryan Adams for allowing the use of many of their definitions.
 %%
-%%  Adapted by Trevor Campbell for personal use.
+%%  Adapted by Trevor Campbell and further simplified by Martin Trapp
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{shortex}
@@ -14,24 +14,14 @@
 \RequirePackage[mathscr]{eucal} % use euler script instead of mathcal
 \RequirePackage{dsfont} % doublestroke fonts (for things like reals, nats, complex numbers, etc)
 \RequirePackage[nice]{nicefrac} % nice fraction typesetting, compact symbols for 1/2, etc
-\RequirePackage{hyperref}
 
 \RequirePackage{amsmath,amssymb,amsthm,bm,bbm,amsfonts,mathtools,thmtools} % math
 \RequirePackage[capitalize,sort,compress]{cleveref} % nice reference package for automatically choosing names for references
-% ensure that crefs appear correctly in bookmarks 
-\RequirePackage{crossreftools} % may not be available when uploading to arXiv 
-\pdfstringdefDisableCommands{%
-    \let\Cref\crtCref
-    \let\cref\crtcref
-}
+
 \DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
-\RequirePackage{import, subfiles} % packages for using subfile/folder structure
 \RequirePackage{url} % nice URL typesetting
 \RequirePackage{algpseudocode, algorithm} % typical alg typesetting packages
 \RequirePackage{graphicx} % typical graphics package for figures
-\RequirePackage{multirow} % multirow tables
-\RequirePackage{wrapfig} % figures wrapped into the text
-\RequirePackage{caption,subcaption} % package for sub-environments (figs, tables, etc)
 \RequirePackage{microtype} % microtypesetting improvements for latex
 \RequirePackage{booktabs} % professional quality tables
 
@@ -41,15 +31,7 @@
 %%% Package Options Declarations %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newif\ifusecolorhypersetup
-\usecolorhypersetupfalse
-\DeclareOption{colorhypersetup}{\usecolorhypersetuptrue}
-
-\newif\ifuseblackhypersetup
-\useblackhypersetupfalse
-\DeclareOption{blackhypersetup}{\useblackhypersetuptrue}
-
-\def\boldorbar{\bar}
+\def\boldorbar{\bm}
 \DeclareOption{bbold}{\def\boldorbar{\bm}}
 \DeclareOption{bbar}{\def\boldorbar{\bar}}
 
@@ -57,32 +39,13 @@
 \useautonumfalse
 \DeclareOption{autonum}{\useautonumtrue}
 
-%\ExecuteOptions
 \ProcessOptions*
-
-\ifusecolorhypersetup
-	\RequirePackage{hyperref}
-	\hypersetup{colorlinks=true, allcolors=SubtleColor, pdfborder={0 0 0}}
-\fi
-
-\ifuseblackhypersetup
-	\RequirePackage{hyperref}
-	\hypersetup{colorlinks=false, allcolors=black, pdfborder={0 0 0}}
-\fi
-
 \ifuseautonum \RequirePackage{autonum} \fi
-
-%%%%%%%%%%%%%
-%%% Links %%%
-%%%%%%%%%%%%%
-\renewcommand*{\UrlFont}{\ttfamily\scriptsize\relax}
-
 
 % Stacked Relations
 %%%%%%%%%%%%%%%%%%%
 \newcommand{\stk}[2]{\ensuremath{\stackrel{\text{#2}}{#1}}}
 \newcommand{\stkm}[2]{\ensuremath{\stackrel{#2}{#1}}}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Bracket Shorthands %%%
@@ -106,6 +69,7 @@
 		     {\@lcrx[#1]{#2}{#3}{#4}}}
 \makeatother    
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Brackets and bracket-like functions
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -123,10 +87,6 @@
 
 \newcommand{\normsub}[3][{-2}]{\lcrx[#1]{\Vert}{#2}{\Vert_{#3}}}
 \newcommand{\innersub}[4][{-2}]{\lcrx[#1]{\langle}{{#2},\ {#3}}{\rangle_{#4}}}
-
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%% Align shortcuts %%%
@@ -162,7 +122,7 @@
 \newcommand{\measures}{\mathcal{M}}
 \newcommand{\probMeasures}{\mathcal{M}_1}
 
-
+%%%%%%%%%%%%%%%%
 % Set Operations
 %%%%%%%%%%%%%%%%
 \newcommand{\PowerSet}{\mathcal{P}}
