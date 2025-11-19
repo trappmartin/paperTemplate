@@ -25,9 +25,7 @@
 \sloppy
 
 
-
 \newcommand{\headeright}{A Preprint}
-\newcommand{\undertitle}{A Preprint}
 \newcommand{\shorttitle}{\@title}
 
 \usepackage{fancyhdr}
@@ -223,7 +221,6 @@
     \centering
     {\LARGE\sc \@title\par}
     \@bottomtitlebar
-    \textsc{\undertitle}\\
     \vskip 0.1in
     \def\And{%
       \end{tabular}\hfil\linebreak[0]\hfil%
@@ -249,14 +246,16 @@
 }
 
 % abstract styling
-\renewenvironment{abstract}
-{
-  \centerline
-  {\large \bfseries \scshape Abstract}
-  \begin{quote}
+\renewenvironment{abstract}{
+	\vskip.075in\centerline
+	{
+		\large\sc Abstract
+	}
+	\vspace{0.5ex}
+	\begin{quote}
 }
 {
-  \end{quote}
+\par\end{quote}\vskip 1ex
 }
 
 \endinput

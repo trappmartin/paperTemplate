@@ -21,16 +21,12 @@
 \newcommand{\wrt}{\textit{w.r.t.}\xspace}
 
 % useful macros
-\def\todo#1{\textcolor{colour2}{\textbf{TODO:} #1}\xspace}
-\def\note#1{\textcolor{colour1}{\textbf{Note}: #1}\xspace}
+\def\todo#1{\textcolor{red}{\textsc{#1}}\xspace}
+\def\note#1{\textcolor{blue}{\textit{#1}}\xspace}
 
 % nicer epsilon
 \newcommand{\oldepsilon}{\epsilon}
 \renewcommand{\epsilon}{\varepsilon}
-
-% additional macros for highlighting
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,solid,draw=black!75,inner sep=1.2pt] (char) {\textcolor{black}\tiny #1};}}
-\newcommand{\highlight}[2][black!20]{\mathchoice {\colorbox{#1}{$\displaystyle#2$}} {\colorbox{#1}{$\textstyle#2$}} {\colorbox{#1}{$\scriptstyle#2$}} {\colorbox{#1}{$\scriptscriptstyle#2$}}}
 
 % Fill out paper:
 \begin{document}
@@ -43,32 +39,65 @@
 \maketitle
 
 \begin{abstract}
-    Add abstract here
+    Add abstract here..
 \end{abstract}
 
 
+\section{Project Plan}\label{sec:plan}
+
+\note{The following outline can help in planning a research project:}
+
+\subsection{Problem Setting (P1)}
+\todo{What is the problem that is addressed, and why is it relevant?}
+
+\subsection{Existing Approaches (S1)}
+\todo{How has this been solved/approached so far?}
+
+\subsection{Limitations (P2)}
+\todo{What are the problems with related work, and why do they fail to address the problem?}
+
+\subsection{Your Proposal/Solution}
+\todo{Describe the overall project proposal idea and how this aims to solve P1 and P2 and links to S1.}
+
+\subsection{Key Contributions}
+\todo{What are the key contributions you expect?}
+
+\subsection{Metrics}
+\todo{How can you measure if you succeeded, for example, what metrics to use?}
+
+\subsection{Datasets}
+\todo{Are there benchmarks? What data can be used? Do you need to collect data?}
+
+\subsection{Impact}
+\todo{What are practical contributions that you expect, and what are relevant use cases?}
+
+\clearpage
+
 \section{Introduction}\label{sec:introduction}
-\todo{Add introduction}
+\note{Introduction section of your work, including motivation and relation to existing work (P1, S1, \& P2).}
 
 \section{Background}\label{sec:background}
-\note{Below is an example for a citation:}
-\cite{williams2006gaussian}
+\note{Technical background (optional).}
 
 \section{Main}\label{sec:main}
-\note{Use cref for cross references.}
-\cref{sec:background}
+\note{Description and technical details of your work.}
 
 \section{Experiments}\label{sec:experiments}
+\note{Description and discussion of experiments, experimental results, and ablations.}
 
-\section{Conclusion and Discussion}\label{s:ccl}
+\section{Conclusion and Discussion}\label{s:conclusion}
+\note{Concluding remarks and discussion of your work and results.}
 
 \subsection{Limitations}
+\note{Discussion of the limitations of your work.}
+
 
 \subsection*{Acknowledgements}
 \subsection*{Author Contributions}
 
 % print bibliography
-\bibliography{bibliography} 
+\bibliography{bibliography}
+\nocite{*}
 
 % Fill out appendix:
 \newpage
